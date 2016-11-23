@@ -1,3 +1,5 @@
 class Entry < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :author, class_name: :user
+  has_many :taggings
+  has_many :comments
 end

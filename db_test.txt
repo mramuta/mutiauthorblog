@@ -1,0 +1,5 @@
+u = User.new
+e = Entry.new
+ts = Tagging.new
+c = Comment.new
+t = Tag.new
