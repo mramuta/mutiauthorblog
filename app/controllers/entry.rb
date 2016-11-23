@@ -1,2 +1,4 @@
-get '/entries'
-	erb :'entries/index'
+get '/entries' do
+  @entries = Entry.all
+  erb :'entries/index'
+end
