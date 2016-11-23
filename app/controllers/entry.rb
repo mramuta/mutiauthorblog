@@ -1,2 +1,3 @@
-get '/entries'
-	erb :'entries/index'
+get '/entries' do
+
+end
