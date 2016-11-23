@@ -14,3 +14,15 @@ entries = 100.times.map do
   Entry.create!( :body => Faker::Lorem.paragraph,
                 :author_id  => rand(User.first.id..User.last.id))
 end
+
+comments = Entry.all.each do |entry|
+  rand(1..5).times.map do
+    Comment.create!( :body => Faker::Lorem.paragraph,:author_id  => rand(User.first.id..User.last.id),entry_id:entry.id)
+  end
+end
+
+child_comments = Entry.all.each do |entry|
+  rand(0..5).times.map do
+    Comment.create!( :body => Faker::Lorem.paragraph,:author_id  => rand(User.first.id..User.last.id),entry_id:entry.id, parent_comment_id:entry.comments.ids.sample)
+  end
+end
