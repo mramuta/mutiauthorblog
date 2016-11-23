@@ -5,13 +5,14 @@ Entry.delete_all
 
 
 users = 100.times.map do
-  User.create!( :username => Faker::Name.first_name,
+  User.create!( :username => Faker::Name.name,
                 :password   => 'password' )
 end
 
 
 entries = 100.times.map do
   Entry.create!( :body => Faker::Lorem.paragraph,
+                :title => Faker::Lorem.sentence,
                 :author_id  => rand(User.first.id..User.last.id))
 end
 
