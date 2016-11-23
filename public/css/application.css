@@ -1,0 +1,8 @@
+.post{
+	border-bottom:2px solid black;
+}
+.child{
+	display: block;
+	margin-left: 20px;
+	
+}

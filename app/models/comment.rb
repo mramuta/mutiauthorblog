@@ -3,5 +3,5 @@ class Comment < ActiveRecord::Base
   belongs_to :entry
   belongs_to :comment, foreign_key: :parent_comment_id
   belongs_to :author, class_name: :User
-  has_many :comments
+  has_many :comments, foreign_key: :parent_comment_id
 end
