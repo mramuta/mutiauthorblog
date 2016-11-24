@@ -1,0 +1,16 @@
+<%if !comment.comments.empty?%>
+  <ul>
+    <div class="child">
+      <%comment.comments.each do |child_comment|%>
+        <li>
+          <p><%=child_comment.body%></p>
+          <p>Posted: <%=child_comment.created_at%> By: <a href="/users/<%=child_comment.author.id%>/entries"><%=child_comment.author.username%></a></p>
+          <%if !child_comment.comments.empty?%>
+            <%=child_comment(child_comment)%>
+          <%end%>
+        </li>
+      <%end%>
+    </div>
+  </ul>
+  <%end%>
+<%end%>
