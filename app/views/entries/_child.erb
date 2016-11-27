@@ -2,7 +2,7 @@
 <%@child_comment.comments.each do |comment|%>
   <li>
     <p><%=comment.body%></p>
-    <p>Posted: <%=comment.created_at%> By: <a href="/users/<%=comment.author.id%>/entries"><%=comment.author.username%></a>  </p>
+    <p class="comment_info">Posted: <%=comment.created_at%> By: <a href="/users/<%=comment.author.id%>/entries"><%=comment.author.username%></a>  </p>
     <%if !comment.comments.empty?%>
     <%@child_comment = comment%>
     <%= erb :'entries/_child'%>
