@@ -3,6 +3,26 @@
 }
 .child{
 	display: block;
-	margin-left: 20px;
-	
+	margin-left: 20px;	
+}
+.comment_info{
+	font-size: 65%;
+	font-weight: bold;
+}
+.login{
+	display: block;
+	float: right;
+	border: 1px solid black;
+	width: 200px;
+	height: 100%;
+}
+ul{
+	border-left: 3px dashed gray;
+}
+
+li{
+	border: 1px solid gray;
+	border-left: none;
+	padding: 6px;
+	list-style-type:none;
 }

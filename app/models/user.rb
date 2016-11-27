@@ -12,4 +12,12 @@ class User < ActiveRecord::Base
     self.hash_pass = @password
   end
 
+  def authenticate(username,password)
+  	if username && password
+  		user = User.find_by(username:username)
+  		return true if user.password == BCrypt::Password.create(password)
+  	end
+    false
+  end
+  
 end
