@@ -1,13 +1,11 @@
-post '/sessions' do 
-	username = params[:username]
-	password = params[:password]
-	if username && password
-		if authenticate(username,password)
-			user = User.find_by(username:username)
-			session['user'] = user.id
-			redirect "/users/#{user.id}"
-		end
-	end
-	@errors = "Invalid username/password combo."
-	erb :'sessions/_new'
+post '/sessions' do
+  @user = User.authenticate(params[:username], params[:password])
+  if @user
+    session[:user] = @user.id
+    redirect '/'
+  else
+    @invalid_login = 'Invalid login credentials'
+    @entries = Entry.all
+    erb :'entries/index'
+  end
 end

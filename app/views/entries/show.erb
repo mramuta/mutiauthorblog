@@ -8,9 +8,9 @@
 
 
 
-<ul>
+<ul class="comment-list">
 	<%@comments.where(parent_comment_id:nil).each do |comment|%>
-		<li>
+		<li class="comment-item">
 			<p><%=comment.body%></p>
 			<p class="comment_info">Posted: <%=comment.created_at%> By: <a href="/users/<%=comment.author.id%>/entries"><%=comment.author.username%></a>  </p>
 

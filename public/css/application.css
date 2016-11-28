@@ -3,7 +3,7 @@
 }
 .child{
 	display: block;
-	margin-left: 20px;	
+	margin-left: 20px;
 }
 .comment_info{
 	font-size: 65%;
@@ -11,18 +11,25 @@
 }
 .login{
 	display: block;
-	float: right;
-	border: 1px solid black;
-	width: 200px;
-	height: 100%;
+	background: white;
+	padding-bottom: 15px;
 }
-ul{
+.comment-list{
 	border-left: 3px dashed gray;
 }
 
-li{
+.comment-item{
 	border: 1px solid gray;
 	border-left: none;
 	padding: 6px;
 	list-style-type:none;
+}
+.site-portion{
+	width: 90%;
+}
+.side-container{
+	float: right;
+	width: 10%;
+	height: 100%;
+	margin: -10px;
 }
