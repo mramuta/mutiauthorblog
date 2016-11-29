@@ -8,16 +8,14 @@
 <div id="entry-comments">
 
 <%if current_user%>
-<a href="/comments/entries/<%=@entry.id%>/comment/nil/new" class="reply-link">reply</a>
+<p><a href="/comments/entries/<%=@entry.id%>/comment/nil/new" class="reply-link">reply</a></p>
 <%end%>
 
 
 <ul class="comment-list">
 	<%@comments.where(parent_comment_id:nil).each do |comment|%>
 		<li class="comment-item">
-			<p><%=comment.body%></p>
-			<p class="comment_info">Posted: <%=comment.created_at%> By: <a href="/users/<%=comment.author.id%>/entries"><%=comment.author.username%></a>     <a href="/comments/entries/<%=@entry.id%>/comment/<%=comment.id%>/new" class="reply-link"> reply</a>  </p>
-
+			<%= erb :'comments/_show',locals:{comment:comment}%>
 			<%if !comment.comments.empty?%>
 			<%@child_comment = comment%>
 			<%= erb :'entries/_child'%>

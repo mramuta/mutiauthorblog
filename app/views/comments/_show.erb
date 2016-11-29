@@ -1,0 +1,3 @@
+<%p comment%>
+<p><%=comment.body%></p>
+<p class="comment_info">Posted: <%=comment.created_at%> By: <a href="/users/<%=comment.author.id%>/entries"><%=comment.author.username%></a>     <a href="/comments/entries/<%=@entry.id%>/comment/<%=comment.id%>/new" class="reply-link"> reply</a>  </p>

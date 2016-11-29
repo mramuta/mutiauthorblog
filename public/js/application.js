@@ -13,12 +13,15 @@ $(document).ready(function() {
   $('#entry-comments').on('submit','.comment-form',function(post){
     post.preventDefault();
     var $commentForm = $(this);
+    var $parent = $commentForm.closest('ul');
     $.ajax({
       url: '/comments',
       type: 'POST',
       data: $commentForm.serialize()
     }).done(function(response){
-      console.log(response)
+      $commentForm.closest('div').remove();
+      $parent.append('<ul class="comment-list"></ul>');
+      $parent.find('ul').append(response);
     });
   })
 });

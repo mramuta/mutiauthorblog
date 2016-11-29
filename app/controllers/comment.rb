@@ -10,6 +10,11 @@ end
 
 post '/comments' do
   params[:parent_id] = nil if params[:parent_id] == 'nil'
-  Comment.create(body:params[:body],entry_id:params[:entry_id],parent_comment_id:params[:parent_id],author_id:current_user.id)
-  redirect "/entries/#{params[:entry_id]}"
+  @comment = Comment.create(body:params[:body],entry_id:params[:entry_id],parent_comment_id:params[:parent_id],author_id:current_user.id)
+  if request.xhr?
+    @entry = Entry.find(params[:entry_id])
+    erb :'comments/_show', locals:{comment: @comment},layout: false
+  else
+    redirect "/entries/#{params[:entry_id]}"
+  end
 end
