@@ -13,7 +13,7 @@ $(document).ready(function() {
   $('#entry-comments').on('submit','.comment-form',function(post){
     post.preventDefault();
     var $commentForm = $(this);
-    var $parent = $commentForm.closest('ul');
+    var $parent = $commentForm.closest('li');
     $.ajax({
       url: '/comments',
       type: 'POST',
