@@ -20,8 +20,11 @@
 <body>
   <div class="side-container">
     <%if current_user%>
-
+      <a href="/users/<%=current_user.id%>/entries"><%=current_user.username%></a><br>
+      <a href="/entries/new">Make a new Post</a>
+      <%= erb :"sessions/_delete"%>
     <%else%>
+      <%= erb :'users/_new'%>
       <%= erb :'sessions/_new'%>
     <%end%>
   <a href = '/'>Home</a>

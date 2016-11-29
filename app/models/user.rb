@@ -1,10 +1,10 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
-  has_many :entries
+  has_many :entries, foreign_key: :author_id
   has_many :comments
 
   def password
-    @password ||= BCrypt::Password.new(hash_password)
+    @password ||= BCrypt::Password.new(hash_pass)
   end
 
   def password=(new_password)
@@ -13,9 +13,9 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(username,password)
-  	if username != "" && password != ""
-  		user = User.find_by(username:username)
-  		return true if user.password == BCrypt::Password.create(password)
+    user = User.find_by(username:username)
+  	if user
+  		return true if user.password == password
   	end
     false
   end

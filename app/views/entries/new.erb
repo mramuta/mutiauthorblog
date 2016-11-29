@@ -1,0 +1,11 @@
+<div class="new-post-form">
+<h4>New Post</h4>
+<% if @entry_errors%>
+<%= erb :_errors,:locals => {errors: @entry_errors}%>
+<%end%>
+<form action="/entries" method="post" >
+  <input type="text" name="entry[title]" placeholder="title">
+  <input type="text" name="entry[body]" placeholder="body">
+  <button type="submit">Post</button>
+</form>
+</div>
