@@ -20,8 +20,9 @@ $(document).ready(function() {
       data: $commentForm.serialize()
     }).done(function(response){
       $commentForm.closest('div').remove();
-      $parent.append('<ul class="comment-list"></ul>');
-      $parent.find('ul').append(response);
+      $parent.append('<ul class="comment-list"><li class="comment-item"></li></ul>');
+      $parent.find('li').last().append(response);
+      $('.reply-link').show();
     });
   })
 });

@@ -8,7 +8,9 @@
 <div id="entry-comments">
 
 <%if current_user%>
+<li>
 <p><a href="/comments/entries/<%=@entry.id%>/comment/nil/new" class="reply-link">reply</a></p>
+</li>
 <%end%>
 
 

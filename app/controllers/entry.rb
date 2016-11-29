@@ -11,7 +11,7 @@ end
 get '/entries/:id' do
 	entry_id = params[:id]
 	@entry = Entry.find(entry_id)
-	@comments = @entry.comments
+	@comments = @entry.comments.order(created_at: :desc)
 	erb :'entries/show'
 end
 
