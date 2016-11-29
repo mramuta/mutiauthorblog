@@ -1,12 +1,11 @@
 <div class="comment-form">
-<h4>Post Comment</h4>
 <% if @entry_errors%>
 <%= erb :_errors,:locals => {errors: @entry_errors}%>
 <%end%>
-<form action="/comments" method="post" >
+<form action="/comments" class="comment-form" method="post" >
   <textarea name="body" class="comment-text-area" placeholder="comment"></textarea><br>
   <input type="hidden" name="entry_id" value="<%=@entry_id%>">
   <input type="hidden" name="parent_id" value="<%=@parent_id%>">
-  <button type="submit">Comment</button>
+  <button type="submit" >Comment</button>
 </form>
 </div>

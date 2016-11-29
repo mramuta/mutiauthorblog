@@ -1,7 +1,11 @@
 get '/comments/entries/:entry_id/comment/:parent_id/new' do
   @entry_id = params[:entry_id]
   @parent_id = params[:parent_id]
-  erb :'comments/new'
+  if request.xhr?
+    erb :'comments/new', layout: false
+  else
+    erb :'comments/new'
+  end
 end
 
 post '/comments' do
